@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube URL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="/static/upload.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 60px;
+  left: calc(50% - 100px);
+  display: flex;
+}
+
+.card {
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background-color: #2D2D2D;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 50%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  transition: 0.6s ease-out;
+}
+
+.card:hover .filledbar {
+  width: 70px;
+  transition: 0.4s ease-out;
+}
+
+.circle {
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: white;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #17141d;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 200;
+  transition: 0.6s ease-out;
+}
+.videoLink
+{
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 145px;
+  text-decoration: none;
+}
+/***********/
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+/*************/
+a.DIVLINK
+{
+    display:block;
+     width:100%;
+     height:100%;
+}
+/***************/
+.videoNameClass
+{
+    color:white;
+    display:block;
+    position: absolute;
+    left: 10px;
+    top: 115px;
+}
+ .show-read-more .more-text{
+        display: none;
+    }
+/**********************Original Video Button  *****************************/
+.originalButton {
+	box-shadow: 0px 10px 14px -7px #000000;
+	background:linear-gradient(to bottom, #000000 5%, #0d0f0f 100%);
+	background-color:#000000;
+	border-radius:33px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 22px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+}
+.originalButton:hover {
+	background:linear-gradient(to bottom, #0d0f0f 5%, #000000 100%);
+	background-color:#0d0f0f;
+}
+.originalButton:active {
+	position:relative;
+	top:1px;
+}
+/**********************Original Video Button  *****************************/
+
+
+
+</style>
+     <script>
+        $(document).ready(function(){
+	var maxLength = 10;
+	$(".show-read-more").each(function(){
+		var myStr = $(this).text();
+		if($.trim(myStr).length > maxLength){
+			var newStr = myStr.substring(0, maxLength);
+			var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+			$(this).empty().html(newStr);
+			$(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
+			$(this).append('<span class="more-text">' + removedStr + '</span>');
+		}
+	});
+	$(".read-more").click(function(){
+		$(this).siblings(".more-text").contents().unwrap();
+		$(this).remove();
+	});
+});
+    </script>
+</head>
+<body align="center">
+<form name="form" action = "/originalVideoDirectory" method = "post" enctype="multipart/form-data">
+
+  <input class="originalButton" type="submit" value="Original Video">
+</form>
+    <h4>{{youtubeURL}}</h4>
+
+
+<div class="container">
+   <div class="card"><a href="{{ThePath}}" target="_blank" class="DIVLINK">
+    <h3 class="title">Video 1</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+       <p class="videoNameClass show-read-more more-text">{{videoName}}</p>
+   </a></div>
+      <!--<a href="{{ThePath}}" class="videoLink" target="_blank">The video link</a>-->
+
+  <div class="card"><a href="{{ThePath2}}" target="_blank" class="DIVLINK">
+    <h3 class="title">Video 2</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+
+    </div>
+             <p class="videoNameClass show-read-more more-text">{{videoName2}}</p>
+
+      <br><br><br><br>
+      <!--<a href="{{ThePath2}}" class="videoLink" target="_blank">The video link</a>-->
+  </a></div>
+
+
+   <div class="card"><a href="{{ThePath3}}" target="_blank" class="DIVLINK">
+    <h3 class="title">Video 3</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+              <p class="videoNameClass show-read-more more-text">{{videoName3}}</p>
+
+            <!--<a href="{{ThePath3}}" class="videoLink" target="_blank">The video link</a>-->
+   </a></div>
+
+</div>
+</body>
+</html>
