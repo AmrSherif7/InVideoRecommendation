@@ -1,0 +1,130 @@
+Audio Processing Functions
+
+
+def find(name, path):
+
+def readSelectedClasses():
+
+def getAudioFilesPaths():
+
+def CropAndProcessAudio(file_name):
+
+def processSounds(audioFilePath,allSounds,folderPath,readingFiles):
+
+Filtering Video Functions
+
+def isFilteredYes():
+
+def isOriginalYes():
+
+def originalVideoFunction():
+
+def filteredVideoFunction():
+
+
+### Getting cluster head Ids ###
+###
+def cosineSimilarity(sortedFreq):
+
+def getClusterHeadsIds(): ## to get the  movie Ids of each cluster
+
+#### Organizing arrays with all object names ###
+###
+def constructAllObjectsInOrder(same):
+
+
+### Getting the most similar videos to the video insert by the user
+
+def readVideo(objectsDetected,noOfOccurences): #getting the object of the topN videos
+
+def readForConfusionMatrix(arrayOfArrays, arrayOfArraysFrequency, NoOfOccurencesTotal, Total, same,
+                           numberOfVideosTopN, idS): #getting the object of the topN videos
+
+getConfusionMatrix(topNVariableHere):
+
+def cosineSimilarityTopN(sortedFreq,movieIdArrayInOneCluster):
+
+def getTopN(similarVideoClusterId): #Get top 3 videos similar to the unseen video
+
+def readTopN(arrayOfArrays,arrayOfArraysFrequency,NoOfOccurencesTotal,Total,same,numberOfVideosInCluster,idS):
+
+### Getting Related Video Links that are related to the video inserted by the user
+###
+def getRelatedVideosLinks():
+
+
+# User Register
+def register():
+
+
+##### Login (Native) ##############################
+#######
+
+# User login
+@app.route('/login(Native)', methods=['GET', 'POST'])
+def loginNative():
+
+
+# Check if user logged in #################
+#######
+def is_logged_in(f):
+
+# Logout  #################
+#######
+def logout():
+
+
+### Choosing either uploading or inserting video link
+def Choose():
+
+### The Loading page before the user gets to the related videos
+###
+def loadingScreen():
+
+
+###The page where you upload the video ###
+###
+def upload():
+
+##Output related videos || also makes the processing video in it runs in the background [success() function]###
+##
+
+@app.route("/test",methods=["GET","POST"])
+def testing():
+
+## Delete the audio file that was processed already###
+##
+
+def deleteAudioFiles(folderPath):
+
+
+## Process the video and extract frequencies and object names from and filer it which is gone to the filtered file directory ###
+##
+
+def success(filename):
+
+
+### the user puts the link of the video
+def putURL():
+
+### ### getting the video link data and processing it###
+def getURL():
+
+
+Clustering Functions
+
+
+##Get the most video similar to all videos in the same clusters##
+def getClusterHeads(clusterIdArray,similarities):
+
+
+def updateClusterHeadsDB(movieId): Updating Cluster Heads Values in Data Base
+
+
+def updateclusterId(clusterIdArray,similarities):
+
+def spectralClustering(similarities):
+
+def cosineSimilarity(sortedFreq):
+
+def read():

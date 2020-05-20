@@ -1,0 +1,4 @@
+##### Sign up (Native) ##############################
+#######
+# Register Form Class
+class RegisterForm(Form):
