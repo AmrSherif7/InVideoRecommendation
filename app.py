@@ -1241,6 +1241,16 @@ def success(filename):
                     filterVideo = False
                 elif (LABELS[classIDs[i]] == 'rifle'):
                     filterVideo = False
+                elif (LABELS[classIDs[i]] == LABELS[0]):
+                    filterVideo = False
+                elif (LABELS[classIDs[i]] == LABELS[1]):
+                    filterVideo = False
+                elif (LABELS[classIDs[i]] == LABELS[2]):
+                    filterVideo = False
+                elif (LABELS[classIDs[i]] == LABELS[3]):
+                    filterVideo = False
+                elif (LABELS[classIDs[i]] == LABELS[4]):
+                    filterVideo = False
                 else:
                     filterVideo = True
                 if objectsDetected == emptyArray:
