@@ -659,6 +659,12 @@ def getRelatedVideosLinks():
     for x in myresult:
 
         relatedVideosLinks.append(x[0])
+    sql = "UPDATE movie SET topN =-1"
+    
+    mycursor.execute(sql)
+    db_connection.commit()
+    
+    print(mycursor.rowcount, "topN  successfully updated")
     return relatedVideosLinks
 ###
 ### Getting Related Video Links that are related to the video inserted by the user
